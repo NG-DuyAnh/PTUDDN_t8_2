@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ptuddn-t6
-  namespace: default
+  name: rest-api
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: ptuddn-t6
+      app: rest-api
   template:
     metadata:
       labels:
-        app: ptuddn-t6
+        app: rest-api
     spec:
       containers:
-        - name: ptuddn-t6
-          image: DOCKER_HUB_USERNAME/ptuddn_t6:latest  # Replace with your Docker Hub username
+        - name: rest-api
+          image: 345nani/rest-api:latest  # This will be dynamically updated
           ports:
-            - containerPort: 80
+            - containerPort: 8080

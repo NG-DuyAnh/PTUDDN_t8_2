@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ptuddn-t6-service
+  name: my-app-service
   namespace: default
 spec:
   selector:
-    app: ptuddn-t6
+    app: my-app
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
-  type: LoadBalancer
+      targetPort: 8080
+  type: ClusterIP
