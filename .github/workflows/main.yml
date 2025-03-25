@@ -18,6 +18,12 @@
             distribution: 'corretto'
             java-version: 17
 
+        - name: ArgoCD Sync
+          run: |
+            argocd login localhost:8080 --username admin --password ${{ secrets.ARGOCD_PASSWORD }}
+            argocd app sync ptuddn-t6
+       
+
         - name: unit tests
           run: mvn -B test --file pom.xml
         
@@ -58,4 +64,8 @@
             dockerfile: Dockerfile
             push: true
             tags: ${{ secrets.DOCKER_HUB_USERNAME }}/rest-api:v1.0.0
+
+
+
+
 
